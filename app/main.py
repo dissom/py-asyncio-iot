@@ -42,13 +42,6 @@ async def main() -> None:
             service.send_msg(Message(toilet_id, MessageType.CLEAN)),
         )
 
-    sleep_program = [
-        Message(hue_light_id, MessageType.SWITCH_OFF),
-        Message(speaker_id, MessageType.SWITCH_OFF),
-        Message(toilet_id, MessageType.FLUSH),
-        Message(toilet_id, MessageType.CLEAN),
-    ]
-
     # run the programs
     await wake_up_sequence()
     await sleep_sequence()
