@@ -30,14 +30,16 @@ async def main() -> None:
                     Message(speaker_id, MessageType.SWITCH_ON),
                 ]
             ),
-            service.run_program(
-                [
-                    Message(
-                        speaker_id,
-                        MessageType.PLAY_SONG,
-                        "Rick Astley - Never Gonna Give You Up",
-                    ),
-                ]
+            run_sequence(
+                service.run_program(
+                    [
+                        Message(
+                            speaker_id,
+                            MessageType.PLAY_SONG,
+                            "Rick Astley - Never Gonna Give You Up",
+                        ),
+                    ]
+                ),
             ),
         )
 
@@ -57,7 +59,7 @@ async def main() -> None:
                     [Message(toilet_id, MessageType.CLEAN)]
                 ),
             ),
-        ),
+        )
 
     # run the programs
     await wake_up_sequence()
